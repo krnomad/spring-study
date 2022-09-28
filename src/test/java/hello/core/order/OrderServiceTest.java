@@ -4,19 +4,21 @@ import hello.core.AppConfig;
 import hello.core.member.Grade;
 import hello.core.member.Member;
 import hello.core.member.MemberService;
-import hello.core.member.MemberServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 class OrderServiceTest {
-    AppConfig appConfig = new AppConfig();
+    //AppConfig appConfig = new AppConfig();
     MemberService memberService;
     OrderService orderService;
 
     @BeforeEach
     void beforeEach() {
-        memberService = appConfig.memberService();
-        orderService = appConfig.orderservice();
+        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
+        memberService = applicationContext.getBean("memberService", MemberService.class);
+        orderService = applicationContext.getBean("orderService", OrderService.class);
     }
 
     @Test
