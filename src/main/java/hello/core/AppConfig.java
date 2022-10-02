@@ -14,6 +14,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class AppConfig {
+    // FactoryMethod 빙식 (cf: BeanDefinition을 직접 등록하는 방법) - 이전에는 annotation method대신 factoryMethod를 통해 직접사용했었음
     // 모두 interface(역할)만 return하고 내부에 그 역할에 대한 구현만을 표시 하므로 AppConfig만 변경해서 전체 app동작이 바뀌게 된다
     // 애플리케이션 전체 구성이 어떻게 되어있는지 빠르게 파악할 수 있다
     @Bean
